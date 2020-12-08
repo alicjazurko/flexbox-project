@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Roboto&display=swap');
+
+$main-color: rgb(163, 219, 187);
+$header-fonts-color: rgb(77, 76, 78);
+$article-color: rgba(239, 229, 220, 0.205);
+$default-font: arial, sans-serif;
+$special-font: 'pt sans', 'roboto', arial, sans-serif;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    background-color: lighten($main-color, 10%);
+    font-family: $default-font;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap; //przechodzenie do nowej lini
+    flex-direction: row;
+    align-content: stretch;
+    font-size: 2rem;
+    max-width: 1000px;
+    background-color: #fff;
+    margin: 0 auto;
+    box-shadow: 0 0 4px 0 #000;
+
+}
+
+.logo {
+    flex-basis: 70px;
+    flex-grow: 0; //dzielenie wolnej przestrzeni
+    &__image {
+        display: block;
+        width: 100%;
+    }
+}
+
+.search {
+    flex-grow: 1;
+    display: flex;
+    align-items: center; //środkowanie w pionie
+    justify-content: center; //środkowanie w poziomie
+    border-bottom: 2px dashed $main-color;
+    @media(max-width: 606px) {
+        border: none;
+    }
+    &__input {
+        flex-basis: 50%;
+        height: 40%;
+        margin-right: 10px;
+        padding: 0 10px;
+        font-size: 1.4rem;
+        max-height: 60px;
+        &:focus {
+            box-shadow: 0 0 2px 1px $main-color;
+        }
+        @media(max-width: 400px) {
+            max-width: 120px;
+        }
+    }
+    &__btn {
+        height: 40%;
+        max-height: 60px;
+        padding: 0 10px;
+        font-size: 1.4rem;
+        background-color: white;
+        border: 2px solid $header-fonts-color;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: 0.4s;
+        &:hover {
+            background-color: $main-color;
+            color: rgb(54, 54, 54);
+        }
+        @media(max-width: 400px) {
+            max-width: 40px;
+            font-size: 1rem;
+        }
+    }
+
+}
+
+.settings {
+    background-color: $main-color;
+    flex-grow: 0.5;
+    display: flex;
+    padding: 0 50px;
+    align-items: center;
+    justify-content: center;
+    &__icon {
+        color: white;
+        margin: 0 5px;
+        font-size: 2.5rem;
+        &:hover {
+            color: $header-fonts-color;
+        }
+    }
+    @media(max-width: 700px) {
+        flex-grow: 1;
+    }
+
+}
+
+.menu {
+    flex-basis: 100%; //szerokość elementu wzduż osi 
+    background-color: white;
+    color: $special-font;
+    height: 70px;
+    padding: 15px 30px;
+    @media (max-width: 650px) {
+        height: 130px;
+    }
+    &__list {
+        list-style: none;
+        display: flex;
+        @media (max-width: 700px) {
+            flex-wrap: wrap;
+            margin: 0 40px;
+        }
+    }
+    &__item {
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        line-height: 4rem;
+        margin: 0 20px;
+        &:hover {
+            border-bottom: 2px solid $header-fonts-color;
+        }
+        &:nth-last-child(1) {
+            margin-left: auto;
+            border: 2px solid $header-fonts-color;
+            @media (max-width: 650px) {
+                margin-left: 20px;
+            }
+            &:hover {
+                background-color: $main-color;
+                border-color: gray;
+            }
+            .menu__link {
+                padding: 0 20px;
+            }
+        }
+    }
+    &__link {
+        display: block;
+        color: $header-fonts-color;
+        text-decoration: none;
+        padding: 0 10px;
+    }
+}
+
+.article {
+    padding: 20px 50px;
+    color: $header-fonts-color;
+    text-align: justify;
+    font-family: $special-font;
+    
+    &__image {
+        display: block;
+        width: 100%;
+    }
+    &__title {
+        font-family: $special-font;
+        text-transform: uppercase;
+        font-size: 2.5rem;
+        padding: 20px 0 0;
+    }
+    &__introduction {
+        line-height: 3.2rem;
+        padding: 15px 0;
+    }
+    &__btn {
+        font-size: 1.7rem;
+        text-decoration: none;
+        color: black;
+        border: 1px solid black;
+        padding: 5px 10px;
+        transition: 0.2s;
+        &:hover {
+            background-color:$main-color;
+            color: $header-fonts-color;
+        }
+    }
+}
+
+.main-articles {
+    background-color: $article-color;
+    flex-basis: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    &__intro {
+        flex-basis: 100%;
+        padding: 10px 0;
+        background-color: $main-color;
+        color: white;
+        margin: 0 0 30px;
+        text-align: center;
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+    .article {
+        flex-basis: 50%;
+        @media (max-width: 799px) {
+            flex-basis: 100%;
+        }
+    }
+}
+
+.article-list {
+    flex-basis: 100%;
+    background-color: rgba(241, 137, 225, 0.144);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-top: 5px dashed rgba(241, 137, 225, 0.425);
+
+    .article--small {
+        flex-basis: 30%;  
+        flex-grow: 1;  
+
+    }
+    .article__title {
+            font-size: 1.6rem;
+            text-align: center;
+            background-color: #fff;
+            padding: 10px 0;
+            cursor: pointer;
+        }
+    .article__image {
+        max-width: 100%;
+        cursor: pointer;
+
+    }
+}
+
+.footer {
+    flex-basis: 100%;
+    background-color: lighten($main-color, 15%);
+    display: flex;
+    justify-content: space-evenly;
+    padding: 40px 0;
+    border-top: 5px dashed $main-color;
+    .sm-links {
+        flex-basis: 30%;
+
+    }
+}
+
+.sm-links {
+    font-family: $special-font;
+    color: darken($header-fonts-color, 15%);
+    &__title {
+        margin: 20px 0;
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        @media(max-width: 700px) {
+            font-size: 1.3rem;
+        }
+    }
+    &__item {
+        text-indent: 40px;
+        font-size: 1.8rem;
+        @media(max-width: 700px) {
+            font-size: 1.5rem;
+        }
+    }
+}
